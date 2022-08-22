@@ -1,0 +1,10 @@
+.places_image {
+  width: 95%;
+  height: 260px;
+}
+
+@media screen and (max-width: 900px) {
+  .places_image {
+    height: 150px;
+  }
+}
