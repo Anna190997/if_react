@@ -11,7 +11,7 @@ const Location = (props) => {
         </a>
       </div>
       <div className="location">
-        {props.city} {props.country}
+        {props.city}, {props.country}
       </div>
     </div>
   );

@@ -1,28 +1,29 @@
-import Location from '../Location/location';
-import Title from '../Title/title';
-import data from '../../data';
-import './app.css';
+import { useState } from 'react';
+
+import Hotel from '../Hotel/hotel';
+import Header from '../Header/header';
+import Available from '../Available/available';
+import Form from '../Form/form';
+import Links from '../Links/links';
+import Background from '../../../public/images/castelbackground.png';
+import '../Hotel/hotel.css';
 
 const App = () => {
-  const place = data.map((places) => (
-    <Location
-      key={places.id}
-      placeUrl={places.imageUrl}
-      placeName={places.country}
-      name={places.name}
-      city={places.city}
-      country={places.country}
-    />
-  ));
-
+  const [wish, setWish] = useState('');
+  const handleWishChange = (wish) => {
+    setWish(wish);
+  };
   return (
-    <div className="container">
-      <div className="homes_loves">
-        <Title title="Homes guests loves" />
-      </div>
-      <div className="places">
-        <div className="places_items">{place}</div>
-      </div>
+    <div>
+      <header style={{ backgroundImage: 'url(' + Background + ')' }}>
+        <div className="container">
+          <Header />
+          <Form onChange={handleWishChange} />
+          <Links />
+        </div>
+      </header>
+      <Available wish={wish} />
+      <Hotel />
     </div>
   );
 };

@@ -3,7 +3,12 @@
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 104px;
+  padding-left: 104px;
+  padding-right: 104px;
+}
+.hotel {
+  background-color: #eaf0f9;
+  height: max-content;
 }
 .places {
   display: flex;
@@ -15,12 +20,14 @@
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 30px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 @media screen and (max-width: 500px) {
   .container {
-    padding: 0 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
   .places_items {
     padding-left: 8px;
