@@ -1,11 +1,9 @@
 import Title from '../Title/title';
 import '../Hotel/hotel.css';
 import Location from '../Location/location';
-import data from '../../data';
 
-const Available = ({ wish }) => {
-  const searchHotel = data.filter((location) => Object.values(location).includes(wish));
-  const placeSearch = searchHotel.map((places) => (
+const Available = ({ search }) => {
+  const placeSearch = search.map((places) => (
     <Location
       key={places.id}
       placeUrl={places.imageUrl}

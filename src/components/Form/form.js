@@ -1,7 +1,7 @@
 import './form.css';
 import Button from '../Button/button';
 
-const Form = ({ onChange }) => {
+const Form = ({ onChange, showHotel }) => {
   const handleWishChange = (event) => {
     onChange(event.target.value);
   };
@@ -36,7 +36,7 @@ const Form = ({ onChange }) => {
           id="number"
           placeholder="2 Adults — 0 Children — 1 Room"
         />
-        <Button buttonText="Search" />
+        <Button buttonText="Search" showHotel={showHotel} />
       </div>
     </form>
   );
