@@ -1,5 +1,5 @@
 import Location from '../Location/location';
-import Title from '../Title/title';
+import TitleBlock from '../TitleBlock/title_block';
 import data from '../../data';
 import './hotel.css';
 
@@ -19,7 +19,7 @@ const Hotel = () => {
     <div className="hotel">
       <div className="container">
         <div className="homes_loves">
-          <Title title="Homes guests loves" />
+          <TitleBlock title="Homes guests loves" />
         </div>
         <div className="places">
           <div className="places_items">{place}</div>

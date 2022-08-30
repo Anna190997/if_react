@@ -1,31 +1,37 @@
-import Title from '../Title/title';
+import TitleBlock from '../TitleBlock/title_block';
 import '../Hotel/hotel.css';
 import Location from '../Location/location';
 
 const Available = ({ search }) => {
-  const placeSearch = search.map((places) => (
-    <Location
-      key={places.id}
-      placeUrl={places.imageUrl}
-      placeName={places.country}
-      name={places.name}
-      city={places.city}
-      country={places.country}
-    />
-  ));
-
-  return (
-    <div className="hotel" style={{ display: 'none' }} id="hotel">
-      <div className="container">
-        <div className="homes_loves">
-          <Title title="Available hotels" />
-        </div>
-        <div className="places">
-          <div className="places_items">{placeSearch}</div>
+  let content;
+  if (search.length === 0) {
+    content = null;
+  } else {
+    content = (
+      <div className="hotel">
+        <div className="container">
+          <div className="homes_loves">
+            <TitleBlock title="Available hotels" />
+          </div>
+          <div className="places">
+            <div className="places_items">
+              {search.map((item) => (
+                <Location
+                  key={item.id}
+                  placeUrl={item.imageUrl}
+                  placeName={item.country}
+                  name={item.name}
+                  city={item.city}
+                  country={item.country}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return <>{content}</>;
 };
 
 export default Available;
