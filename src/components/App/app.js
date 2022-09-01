@@ -13,7 +13,7 @@ const App = () => {
   const [search, setSearch] = useState([]);
   const showHotel = () => {
     const resultHotel = data.filter((location) =>
-      Object.values(location).toString().includes(value),
+      Object.values(location).toString().toLowerCase().includes(value),
     );
     setSearch(resultHotel);
   };
