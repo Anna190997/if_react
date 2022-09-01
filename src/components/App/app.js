@@ -12,7 +12,9 @@ const App = () => {
   };
   const [search, setSearch] = useState([]);
   const showHotel = () => {
-    const resultHotel = data.filter((location) => Object.values(location).includes(value));
+    const resultHotel = data.filter((location) =>
+      Object.values(location).toString().includes(value),
+    );
     setSearch(resultHotel);
   };
 
