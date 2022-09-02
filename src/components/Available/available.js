@@ -3,35 +3,33 @@ import '../Hotel/hotel.css';
 import Location from '../Location/location';
 
 const Available = ({ search }) => {
-  let content;
-  if (search.length === 0) {
-    content = null;
-  } else {
-    content = (
-      <div className="hotel">
-        <div className="container">
-          <div className="homes_loves">
-            <TitleBlock title="Available hotels" />
-          </div>
-          <div className="places">
-            <div className="places_items">
-              {search.map((item) => (
-                <Location
-                  key={item.id}
-                  placeUrl={item.imageUrl}
-                  placeName={item.country}
-                  name={item.name}
-                  city={item.city}
-                  country={item.country}
-                />
-              ))}
+  return (
+    <>
+      {search.length && (
+        <div className="hotel">
+          <div className="container">
+            <div className="homes_loves">
+              <TitleBlock title="Available hotels" />
+            </div>
+            <div className="places">
+              <div className="places_items">
+                {search.map((item) => (
+                  <Location
+                    key={item.id}
+                    placeUrl={item.imageUrl}
+                    placeName={item.country}
+                    name={item.name}
+                    city={item.city}
+                    country={item.country}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
-  return <>{content}</>;
+      )}
+    </>
+  );
 };
 
 export default Available;
