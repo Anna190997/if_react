@@ -1,29 +1,29 @@
-import Location from '../Location/location';
-import Title from '../Title/title';
+import { useState } from 'react';
+
+import Hotel from '../Hotel/hotel';
+import Available from '../Available/available';
+import Header from '../Header/header';
 import data from '../../data';
-import './app.css';
 
 const App = () => {
-  const place = data.map((places) => (
-    <Location
-      key={places.id}
-      placeUrl={places.imageUrl}
-      placeName={places.country}
-      name={places.name}
-      city={places.city}
-      country={places.country}
-    />
-  ));
+  const [value, setValue] = useState('');
+  const handleWishChange = (value) => {
+    setValue(value);
+  };
+  const [search, setSearch] = useState([]);
+  const showHotel = () => {
+    const resultHotel = data.filter((location) =>
+      Object.values(location).toString().toLowerCase().includes(value.toLowerCase()),
+    );
+    setSearch(resultHotel);
+  };
 
   return (
-    <div className="container">
-      <div className="homes_loves">
-        <Title title="Homes guests loves" />
-      </div>
-      <div className="places">
-        <div className="places_items">{place}</div>
-      </div>
-    </div>
+    <>
+      <Header onChange={handleWishChange} showHotel={showHotel} />
+      <Available search={search} />
+      <Hotel />
+    </>
   );
 };
 
