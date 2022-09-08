@@ -16,6 +16,7 @@
   padding-bottom: 120px;
 }
 .places_items {
+  position: relative;
   display: flex;
 }
 

@@ -1,0 +1,14 @@
+.more {
+    position: absolute;
+    cursor: pointer;
+    left: 100%;
+    width: 2%;
+    margin-top: 125px
+}
+.less {
+    position: absolute;
+    cursor: pointer;
+    width: 2%;
+    left: -3%;
+    margin-top: 120px
+}

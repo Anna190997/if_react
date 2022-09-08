@@ -1,10 +1,8 @@
 import Location from '../Location/location';
 import TitleBlock from '../TitleBlock/title_block';
 import './hotel.css';
-import SliderMore from '../SliderMore/sliderMore';
-import SliderLess from '../SliderLess/sliderLess';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import Slider from '../Slider/slider';
+import { useState, useEffect } from 'react';
 
 const Hotel = () => {
   const [hotel, setHotel] = useState([]);
@@ -35,7 +33,12 @@ const Hotel = () => {
         </div>
         <div className="places">
           <div className="places_items">
-            <SliderLess slide={slideLess} />
+            <Slider
+              arrowImg="../../images/less.svg"
+              changeSlide={slideLess}
+              changeClass="less"
+              sliderMin={sliderMin}
+            />
             {hotel.slice(sliderMin, sliderMax).map((item) => (
               <Location
                 key={item.id}
@@ -46,7 +49,13 @@ const Hotel = () => {
                 country={item.country}
               />
             ))}
-            <SliderMore slide={slideMore} />
+            <Slider
+              arrowImg="../../images/more.svg"
+              changeSlide={slideMore}
+              changeClass="more"
+              sliderMax={sliderMax}
+              arrayLength={hotel.length}
+            />
           </div>
         </div>
       </div>
