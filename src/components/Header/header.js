@@ -2,7 +2,7 @@ import Background from '../../../public/images/castelbackground.png';
 import Form from '../Form/form';
 import Main from '../Main/main';
 import Links from '../Links/links';
-import '../Hotel/hotel.css';
+import '../HotelRender/hotelRender.css';
 
 const Header = ({ onChange, showHotel }) => {
   return (
