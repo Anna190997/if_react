@@ -25,7 +25,7 @@ const HotelRender = ({ title, hotel }) => {
         <div className="places">
           <div className="places_items">
             <Arrow
-              arrowImg="../../images/less.svg"
+              arrowImg="../../images/more.svg"
               changeSlide={arrowLess}
               changeClass="less"
               sliderMin={arrowMin}

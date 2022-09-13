@@ -5,8 +5,10 @@
     box-sizing: border-box;
     padding-left: 104px;
     padding-right: 104px;
+    position: relative;
 }
 .hotel {
+    position: relative;
     background-color: #eaf0f9;
     height: max-content;
 }
@@ -14,6 +16,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 120px;
+    position: relative;
 }
 .places_items {
     position: relative;
