@@ -11,7 +11,7 @@ const Form = ({ onChange, showHotel, onClick, changeInput, changeText }) => {
   const showFilter = (event) => {
     onClick(event.target.value);
   };
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(startDate);
 
   return (
@@ -32,7 +32,7 @@ const Form = ({ onChange, showHotel, onClick, changeInput, changeText }) => {
         <div className="form_wrap">
           <label className="label_form">Check-in </label>
           <DataPicker
-            placeholder="Tue 15 Sept — "
+            placeholderText="Tue 15 Sept           — "
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             className="date"
@@ -43,7 +43,7 @@ const Form = ({ onChange, showHotel, onClick, changeInput, changeText }) => {
         <div className="form_wrap">
           <label className="label_form">Check-out</label>
           <DataPicker
-            placeholder="Sat 19 Sept"
+            placeholderText="Sat 19 Sept"
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             className="date"
@@ -53,7 +53,7 @@ const Form = ({ onChange, showHotel, onClick, changeInput, changeText }) => {
       <input
         onClick={showFilter}
         value={changeInput}
-        onChange={changeText}
+        onChange={changeInput}
         type="text"
         className="number col-4 "
         placeholder="2 Adults — 0 Children — 1 Room"

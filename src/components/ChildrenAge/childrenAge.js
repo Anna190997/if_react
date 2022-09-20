@@ -1,21 +1,22 @@
 import './childrenAge.css';
-import Select from "../Select/select";
+import Select from '../Select/select';
 
-const ChildrenAge = ({changeChildren, filter}) => {
-    return (
-        <>
-            {changeChildren===0 || (!filter) ? null : (
-        <form className="children_number" >
+const ChildrenAge = ({ changeChildren, filter }) => {
+  return (
+    <>
+      {!changeChildren ||
+        (filter && (
+          <form className="children_number">
             <div className="children_number_text">
-                What is the age of the child you’re travelling with?
+              What is the age of the child you’re travelling with?
             </div>
-            {[...Array(changeChildren)].map((item, index) =>   <Select key ={index} />)
-             }
-        </form>
-                ) }
-
-        </>
-    )
-}
+            {[...Array(changeChildren)].map((item, index) => (
+              <Select key={index} />
+            ))}
+          </form>
+        ))}
+    </>
+  );
+};
 
 export default ChildrenAge;

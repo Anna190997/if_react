@@ -9,63 +9,45 @@ import { useState } from 'react';
 
 const Header = ({ onChange, showHotel }) => {
   const [filter, setFilter] = useState(false);
-  const [changeAdults, setChangeAdults] = useState(2);
-  const handleMinusAdults = () => {
-    setChangeAdults(changeAdults - 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
+  const [parametrFilter, setParametrFilter] = useState({
+    adults: 2,
+    children: 0,
+    rooms: 1,
+  });
+  const handleChangePlus = (field) => {
+    setParametrFilter((prevState) => ({ ...prevState, [field]: prevState[field] + 1 }));
   };
-  const handlePlusAdults = () => {
-    setChangeAdults(changeAdults + 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
+  const handleChangeMinus = (field) => {
+    setParametrFilter((prevState) => ({ ...prevState, [field]: prevState[field] - 1 }));
   };
+  const change = `${parametrFilter.adults} Adults — ${parametrFilter.children} Children — ${parametrFilter.rooms} Rooms`;
 
-  const [changeChildren, setChangeChildren] = useState(0);
-  const handleMinusChildren = () => {
-    setChangeChildren(changeChildren - 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
-  };
-  const handlePlusChildren = () => {
-    setChangeChildren(changeChildren + 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
-  };
-
-  const [changeRooms, setChangeRooms] = useState(1);
-  const handleMinusRooms = () => {
-    setChangeRooms(changeRooms - 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
-  };
-  const handlePlusRooms = () => {
-    setChangeRooms(changeRooms + 1);
-    setText(`${changeAdults} Adults — ${changeChildren} Children — ${changeRooms} Rooms`);
-  };
-  const [textInput, setText] = useState('');
-  const onChangeText = (event) => {
-    setText(event.target.value);
-  };
   return (
-    <>
-      <header style={{ backgroundImage: 'url(' + Background + ')' }}>
-        <div className="container">
-          <Main />
-          <Form onChange={onChange} showHotel={showHotel} onClick={() => setFilter(!filter)} changeInput={textInput}
-          changeText={(e) => onChangeText(e)}/>
-          <Filter
-            filter={filter}
-            handleMinusAdults={handleMinusAdults}
-            changeAdults={changeAdults}
-            handlePlusAdults={handlePlusAdults}
-            handleMinusChildren={handleMinusChildren}
-            changeChildren={changeChildren}
-            handlePlusChildren={handlePlusChildren}
-            handleMinusRooms={handleMinusRooms}
-            changeRooms={changeRooms}
-            handlePlusRooms={handlePlusRooms}
-          />
-          <ChildrenAge changeChildren={changeChildren} filter={filter} />
-          <Links />
-        </div>
-      </header>
-    </>
+    <header style={{ backgroundImage: 'url(' + Background + ')' }}>
+      <div className="container">
+        <Main />
+        <Form
+          onChange={onChange}
+          showHotel={showHotel}
+          onClick={() => setFilter(!filter)}
+          changeInput={change}
+        />
+        <Filter
+          filter={filter}
+          handleMinusAdults={() => handleChangeMinus('adults')}
+          changeAdults={parametrFilter.adults}
+          handlePlusAdults={() => handleChangePlus('adults')}
+          handleMinusChildren={() => handleChangeMinus('children')}
+          changeChildren={parametrFilter.children}
+          handlePlusChildren={() => handleChangePlus('children')}
+          handleMinusRooms={() => handleChangeMinus('rooms')}
+          changeRooms={parametrFilter.rooms}
+          handlePlusRooms={() => handleChangePlus('rooms')}
+        />
+        <ChildrenAge changeChildren={parametrFilter.children} filter={filter} />
+        <Links />
+      </div>
+    </header>
   );
 };
 

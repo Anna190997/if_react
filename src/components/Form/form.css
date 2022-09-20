@@ -17,7 +17,7 @@
   border-radius: 8px;
   margin-top: 24px;
 }
-.form_wrap{
+.form_wrap {
   display: flex;
   flex-direction: column;
 }
@@ -29,19 +29,32 @@
   padding-left: 12px;
   height: 64px;
 }
+input {
+  color: #383838;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
 .date,
 .number {
   border: #ffffff;
   height: 64px;
 }
-.number{
+.number {
   margin-top: 45px;
 }
-.destination:hover,
-.date:hover,
+.destination:hover {
+  border: 3px solid #f5bd41;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.date:hover {
+  border: 3px solid #f5bd41;
+}
 .number:hover {
   border: 3px solid #f5bd41;
-  border-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .informations_items:focus,
 .date:focus,
@@ -49,13 +62,14 @@
   color: #383838;
   font-family: Roboto, sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
+  padding-left: 10px;
 }
 ::placeholder {
   color: #383838;
   font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   text-align: left;
 }
 .col-1 {
