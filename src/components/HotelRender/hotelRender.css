@@ -5,10 +5,8 @@
     box-sizing: border-box;
     padding-left: 104px;
     padding-right: 104px;
-    position: relative;
 }
 .hotel {
-    position: relative;
     background-color: #eaf0f9;
     height: max-content;
 }
