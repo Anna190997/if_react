@@ -34,15 +34,9 @@ const Header = ({ onChange, showHotel }) => {
         />
         <Filter
           filter={filter}
-          handleMinusAdults={() => handleChangeMinus('adults')}
-          changeAdults={parametrFilter.adults}
-          handlePlusAdults={() => handleChangePlus('adults')}
-          handleMinusChildren={() => handleChangeMinus('children')}
-          changeChildren={parametrFilter.children}
-          handlePlusChildren={() => handleChangePlus('children')}
-          handleMinusRooms={() => handleChangeMinus('rooms')}
-          changeRooms={parametrFilter.rooms}
-          handlePlusRooms={() => handleChangePlus('rooms')}
+          handleMinus={handleChangeMinus}
+          changeParametr={parametrFilter}
+          handlePlus={handleChangePlus}
         />
         <ChildrenAge changeChildren={parametrFilter.children} filter={filter} />
         <Links />

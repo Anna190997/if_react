@@ -2,18 +2,7 @@ import './filter.css';
 import CategoryFilter from '../CategoryFilter/categoryFilter';
 import CountFilter from '../CountFilter/countFilter';
 
-const Filter = ({
-  filter,
-  handleMinusAdults,
-  changeAdults,
-  handlePlusAdults,
-  handleMinusChildren,
-  changeChildren,
-  handlePlusChildren,
-  handleMinusRooms,
-  changeRooms,
-  handlePlusRooms,
-}) => {
+const Filter = ({ filter, handleMinus, changeParametr, handlePlus }) => {
   return (
     filter && (
       <form className="filter">
@@ -25,25 +14,25 @@ const Filter = ({
           </div>
           <div className="change_filter">
             <CountFilter
-              handleMinus={handleMinusAdults}
-              amount={changeAdults}
-              handlePlus={handlePlusAdults}
-              disabledPlus={changeAdults === 30}
-              disabledMinus={changeAdults === 0}
+              handleMinus={() => handleMinus('adults')}
+              amount={changeParametr.adults}
+              handlePlus={() => handlePlus('adults')}
+              disabledPlus={changeParametr.adults === 30}
+              disabledMinus={changeParametr.adults === 0}
             />
             <CountFilter
-              handleMinus={handleMinusChildren}
-              amount={changeChildren}
-              handlePlus={handlePlusChildren}
-              disabledPlus={changeChildren === 10}
-              disabledMinus={changeChildren === 0}
+              handleMinus={() => handleMinus('children')}
+              amount={changeParametr.children}
+              handlePlus={() => handlePlus('children')}
+              disabledPlus={changeParametr.children === 10}
+              disabledMinus={changeParametr.children === 0}
             />
             <CountFilter
-              handleMinus={handleMinusRooms}
-              amount={changeRooms}
-              handlePlus={handlePlusRooms}
-              disabledPlus={changeRooms === 30}
-              disabledMinus={changeRooms === 0}
+              handleMinus={() => handleMinus('rooms')}
+              amount={changeParametr.rooms}
+              handlePlus={() => handlePlus('rooms')}
+              disabledPlus={changeParametr.rooms === 30}
+              disabledMinus={changeParametr.rooms === 0}
             />
           </div>
         </div>
