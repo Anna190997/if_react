@@ -1,9 +1,9 @@
 import './navigate.css';
 
-const Navigate = () => {
+const Navigate = ({ logoImg }) => {
   return (
     <div className="header">
-      <img className="logo fill" src="../../images/logo.svg" alt="TripHouse" />
+      <img className="logo fill" src={logoImg} alt="TripHouse" />
       <nav className="header_items">
         <div className="links not_view_links">
           <a href="#" className="stays">

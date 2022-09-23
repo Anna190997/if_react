@@ -5,7 +5,7 @@ import TitleMain from '../TitleMain/title_main';
 const Main = () => {
   return (
     <>
-      <Navigate />
+      <Navigate logoImg="../../images/logo.svg" />
       <div className="block_text">
         <TitleMain
           mainText="Discover stays
