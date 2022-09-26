@@ -1,17 +1,18 @@
 import PlacesIMG from '../PlacesIMG/placesIMG';
 import './location.css';
+import {Link} from "react-router-dom";
 
-const Location = (props) => {
+const Location = ({placeUrl, placeName, name, city, country, hotelSearch}) => {
   return (
     <div className="hotel_offer col-7">
-      <PlacesIMG placeUrl={props.placeUrl} placeName={props.placeName} />
+      <PlacesIMG placeUrl={placeUrl} placeName={placeName} />
       <div className="name_hotel">
-        <a href="#" className="hotel_links">
-          {props.name}
-        </a>
+          <Link to={`/hotels/${hotelSearch}`} className="hotel_links" >
+              {name}
+          </Link>
       </div>
       <div className="location">
-        {props.city}, {props.country}
+        {city}, {country}
       </div>
     </div>
   );

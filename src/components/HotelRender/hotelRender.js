@@ -38,6 +38,7 @@ const HotelRender = ({ title, hotel }) => {
                 name={item.name}
                 city={item.city}
                 country={item.country}
+                hotelSearch={item.id}
               />
             ))}
             <Arrow
