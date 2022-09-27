@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import PlacesIMG from '../PlacesIMG/placesIMG';
 import TitleBlock from '../TitleBlock/title_block';
-import Navigate from '../Navigate/navigate';
+import Navigate from '../NavigatePanel/navigatePanel';
 import Footer from '../Footer/footer';
 
 const HotelInformation = () => {

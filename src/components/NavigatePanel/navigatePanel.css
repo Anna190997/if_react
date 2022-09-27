@@ -70,3 +70,6 @@
 .burger_menu {
   display: none;
 }
+.logoAccount:active * {
+  fill: #F5BD41;
+}

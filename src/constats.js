@@ -11,4 +11,19 @@ const propertyTypes = [
 
 const support = ['Contact Customer Service', 'FAQ'];
 
-export { about, propertyTypes, support };
+const users = [
+  {
+    email: 'ann-verbilo@yandex.ru',
+    password: '12345qaz',
+  },
+  {
+    email: 'ivan-ivanov@yandex.ru',
+    password: '6789qaz',
+  },
+  {
+    email: 'petrov@mail.ru',
+    password: '6789123rfv',
+  },
+];
+
+export { about, propertyTypes, support, users };

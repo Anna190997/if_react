@@ -1,11 +1,16 @@
 import './main.css';
-import Navigate from '../Navigate/navigate';
 import TitleMain from '../TitleMain/title_main';
+import NavigatePanel from '../NavigatePanel/navigatePanel';
+import SignOut from '../SignOut/signOut';
+import { useState } from 'react';
 
 const Main = () => {
+  const [signOut, setSignOut] = useState(false);
+
   return (
     <>
-      <Navigate logoImg="../../images/logo.svg" />
+      <NavigatePanel logoImg="../../images/logo.svg" onClick={() => setSignOut(!signOut)} />
+      <SignOut showButton={signOut} />
       <div className="block_text">
         <TitleMain
           mainText="Discover stays

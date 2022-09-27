@@ -4,7 +4,7 @@ import { useState } from 'react';
 import DataPicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const Form = ({ onChange, showHotel, onClick, changeInput, changeText }) => {
+const Form = ({ onChange, showHotel, onClick, changeInput}) => {
   const handleWishChange = (event) => {
     onChange(event.target.value);
   };
