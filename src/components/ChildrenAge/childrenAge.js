@@ -2,6 +2,7 @@ import './childrenAge.css';
 import Select from '../Select/select';
 
 const ChildrenAge = ({ changeChildren, filter }) => {
+
   return (
     <>
       {!changeChildren ||

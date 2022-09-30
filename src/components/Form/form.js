@@ -4,15 +4,17 @@ import { useState } from 'react';
 import DataPicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const Form = ({ onChange, showHotel, onClick, changeInput}) => {
+const Form = ({ onChange, showHotel, onClick, changeInput }) => {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(startDate);
+
   const handleWishChange = (event) => {
     onChange(event.target.value);
   };
+
   const showFilter = (event) => {
     onClick(event.target.value);
   };
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(startDate);
 
   return (
     <form className="informations">

@@ -3,6 +3,7 @@ import CategoryFilter from '../CategoryFilter/categoryFilter';
 import CountFilter from '../CountFilter/countFilter';
 
 const Filter = ({ filter, handleMinus, changeParametr, handlePlus }) => {
+
   return (
     filter && (
       <form className="filter">

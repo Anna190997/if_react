@@ -14,12 +14,15 @@ const Header = ({ onChange, showHotel }) => {
     children: 0,
     rooms: 1,
   });
+
   const handleChangePlus = (field) => {
     setParametrFilter((prevState) => ({ ...prevState, [field]: prevState[field] + 1 }));
   };
+
   const handleChangeMinus = (field) => {
     setParametrFilter((prevState) => ({ ...prevState, [field]: prevState[field] - 1 }));
   };
+
   const change = `${parametrFilter.adults} Adults — ${parametrFilter.children} Children — ${parametrFilter.rooms} Rooms`;
 
   return (

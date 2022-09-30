@@ -5,6 +5,7 @@ import SignOut from '../SignOut/signOut';
 import { useState } from 'react';
 
 const Main = () => {
+
   const [signOut, setSignOut] = useState(false);
 
   return (

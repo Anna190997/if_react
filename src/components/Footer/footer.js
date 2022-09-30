@@ -3,6 +3,7 @@ import FooterLinks from '../FooterLinks/footerLinks';
 import { about, propertyTypes, support } from '../../constats';
 
 const Footer = () => {
+
   return (
     <div className="footer">
       <div className="container">
