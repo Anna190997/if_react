@@ -42,20 +42,13 @@ const Authorization = () => {
     setAuth(resultLogin);
   };
 
-  const handleKeyPress = (e) => {
-    const key = e.keyCode || e.which;
-    if (key === 13) {
-      doSomething();
-    }
-  };
-
   return (
     <>
       <header style={{ backgroundImage: 'url(' + Background + ')' }}>
         <div className="container">
           <NavigatePanel logoImg="../../images/logo.svg" />
         </div>
-        <form className="form_authorization" onKeyPress={handleKeyPress}>
+        <form className="form_authorization" onSubmit={(e) => doSomething(e)}>
           <div className="authorization_title">Sign in</div>
           <div className="authorization_wrapper">
             <div className="authorization_input">
