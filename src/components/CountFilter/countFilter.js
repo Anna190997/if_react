@@ -1,6 +1,7 @@
 import './countFilter.css';
 
 const CountFilter = ({ handleMinus, amount, handlePlus, disabledPlus, disabledMinus }) => {
+
   return (
     <div className="count_filter">
       <input

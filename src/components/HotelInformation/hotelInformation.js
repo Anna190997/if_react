@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import PlacesIMG from '../PlacesIMG/placesIMG';
 import TitleBlock from '../TitleBlock/title_block';
-import Navigate from '../Navigate/navigate';
+import Navigate from '../NavigatePanel/navigatePanel';
 import Footer from '../Footer/footer';
+import SignOut from '../SignOut/signOut';
 
 const HotelInformation = () => {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
+  const [signOut, setSignOut] = useState(false);
+
   useEffect(() => {
     fetch(`https://fe-student-api.herokuapp.com/api/hotels/${id}`)
       .then((response) => response.json())
@@ -23,7 +26,8 @@ const HotelInformation = () => {
       {hotel && (
         <>
           <div className="navigate container">
-            <Navigate logoImg="../../images/logo_vector.svg" />
+            <Navigate logoImg="../../images/logo_vector.svg" onClick={() => setSignOut(!signOut)} />
+            <SignOut showButton={signOut} />
           </div>
           <div className="hotel">
             <div className="container">

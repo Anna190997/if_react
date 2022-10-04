@@ -1,6 +1,7 @@
 import './select.css';
 
 const Select = () => {
+
   return (
     <select className="children_age">
       <option> 0 years old</option>

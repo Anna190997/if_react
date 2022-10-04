@@ -12,10 +12,12 @@ const HotelRender = ({ title, hotel }) => {
     setArrowMax(arrowMax + 1);
     setArrowMin(arrowMin + 1);
   };
+
   const arrowLess = () => {
     setArrowMax(arrowMax - 1);
     setArrowMin(arrowMin - 1);
   };
+
   return (
     <div className="hotel">
       <div className="container">

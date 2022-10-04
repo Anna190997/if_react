@@ -6,11 +6,12 @@ import { useState } from 'react';
 
 const MainPage = () => {
   const [value, setValue] = useState('');
+  const [search, setSearch] = useState([]);
+
   const handleWishChange = (value) => {
     setValue(value);
   };
 
-  const [search, setSearch] = useState([]);
   const showHotel = async () => {
     try {
       const response = await fetch(
@@ -22,6 +23,7 @@ const MainPage = () => {
       alert('Произошла ошибка. Обновите, пожалуйста, страницу');
     }
   };
+
   return (
     <>
       <Header onChange={handleWishChange} showHotel={showHotel} />

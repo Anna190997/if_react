@@ -3,6 +3,7 @@ import './location.css';
 import {Link} from "react-router-dom";
 
 const Location = ({placeUrl, placeName, name, city, country, hotelSearch}) => {
+
   return (
     <div className="hotel_offer col-7">
       <PlacesIMG placeUrl={placeUrl} placeName={placeName} />
