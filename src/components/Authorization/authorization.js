@@ -1,94 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigatePanel from '../NavigatePanel/navigatePanel';
 import Background from '../../../public/images/castelbackground.png';
 import './authorization.css';
 import { users } from '../../constats';
 import { Navigate } from 'react-router-dom';
-import { logIn, logOut } from '../../actions/actions';
-import { connect } from 'react-redux';
+import actions from '../../actions/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
-class Authorization extends React.Component {
-  constructor(props) {
-    super(props);
+const Authorization = () => {
+  const userStatus = useSelector((state) => state.auth);
 
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
+  const dispatch = useDispatch();
 
-  render() {
-    const { user, logIn, logOut } = this.props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [disabled, setDisabled] = useState(true);
 
-    const logInn = (e) => {
-      e.preventDefault();
-      const resultLogin = users.filter((user) =>
-        Object.values(user)
-          .toString()
-          .includes(this.state.email && this.state.password),
-      );
-      if (!resultLogin.length) {
-        alert('Введен неверный логин или пароль. Попробуйте еще раз.');
-        {
-          logOut;
-        }
-      }
-      {
-        logIn;
-      }
-    };
+  const emailChange = (email) => {
+    setEmail(email);
+  };
 
-    return (
-      <>
-        <header style={{ backgroundImage: 'url(' + Background + ')' }}>
-          <div className="container">
-            <NavigatePanel logoImg="../../images/logo.svg" />
-          </div>
-          <form className="form_authorization" onSubmit={(e) => doSomething(e)}>
-            <div className="authorization_title">Sign in</div>
-            <div className="authorization_wrapper">
-              <div className="authorization_input">
-                <label className="authorization_label">Email address</label>
-                <input
-                  placeholder="Введите email"
-                  type="email"
-                  className="authorization_input_type"
-                  onChange={(e) => this.setState({ email: e.target.value })}
-                />
-              </div>
-              <div className="authorization_input">
-                <label className="authorization_label">Password</label>
-                <input
-                  placeholder="Введите пароль"
-                  type="password"
-                  className="authorization_input_type"
-                  onChange={(e) => this.setState({ password: e.target.value })}
-                />
-              </div>
-              <div className="authorization_input">
-                <button
-                  type="submit"
-                  className="authorization_input_type authorization_button"
-                  onClick={logInn}
-                >
-                  Sign in
-                </button>
-              </div>
-            </div>
-          </form>
-        </header>
-        {!!user && <Navigate to="/main" />}
-      </>
+  const passwordChange = (password) => {
+    setPassword(password);
+  };
+
+  const change_email = (e) => {
+    emailChange(e.target.value);
+    setDisabled(false);
+  };
+
+  const change_password = (e) => {
+    passwordChange(e.target.value);
+    setDisabled(false);
+  };
+
+  const inLog = (e) => {
+    e.preventDefault();
+    const resultLogin = users.filter((item) =>
+      Object.values(item)
+        .toString()
+        .includes(email && password),
     );
-  }
-}
+    if (!resultLogin.length) {
+      alert('Введен неверный логин или пароль. Попробуйте еще раз.');
+    }
+    dispatch(actions.logIn(resultLogin));
+  };
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
+  return (
+    <>
+      <header style={{ backgroundImage: 'url(' + Background + ')' }}>
+        <div className="container">
+          <NavigatePanel logoImg="../../images/logo.svg" />
+        </div>
+        <form className="form_authorization" onSubmit={(e) => doSomething(e)}>
+          <div className="authorization_title">Sign in</div>
+          <div className="authorization_wrapper">
+            <div className="authorization_input">
+              <label className="authorization_label">Email address</label>
+              <input
+                placeholder="Введите email"
+                type="email"
+                className="authorization_input_type"
+                onChange={change_email}
+              />
+            </div>
+            <div className="authorization_input">
+              <label className="authorization_label">Password</label>
+              <input
+                placeholder="Введите пароль"
+                type="password"
+                className="authorization_input_type"
+                onChange={change_password}
+              />
+            </div>
+            <div className="authorization_input">
+              <button
+                type="submit"
+                className="authorization_input_type authorization_button"
+                onClick={inLog}
+                disabled={disabled}
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
+        </form>
+      </header>
+      {!!userStatus && <Navigate to="/main" />}
+    </>
+  );
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  logIn: () => dispatch(logIn()),
-  logOut: () => dispatch(logOut()),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Authorization);
+export default Authorization;

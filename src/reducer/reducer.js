@@ -1,22 +1,22 @@
 import {LOGIN, LOGOUT} from "../actions/actionTypes";
 
-const initialState = {
-    user: false
-}
-
-export default (state = initialState, action) => {
+const userStatus = (state = {}, action) => {
     switch (action.type) {
         case LOGIN:
             return {
                 ...state,
-                user: state.user = true,
+                user: action.payload,
+                auth: true,
             }
         case LOGOUT:
             return {
                 ...state,
-                user: state.user = false,
+                user: {},
+                auth: false,
             }
         default:
             return state
     }
 }
+
+export default userStatus;

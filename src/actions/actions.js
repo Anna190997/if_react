@@ -1,10 +1,15 @@
-import {LOGIN, LOGOUT} from "./actionTypes";
+import { LOGIN, LOGOUT } from './actionTypes';
 
+const logIn = (userObj) => ({
+  type: LOGIN,
+  payload: userObj,
+});
 
-export const logIn = () => ({
-    type: LOGIN,
-})
+const logOut = () => ({
+  type: LOGOUT,
+});
 
-export const logOut = () => ({
-    type: LOGOUT,
-})
+export default {
+  logIn,
+  logOut,
+};
