@@ -4,11 +4,16 @@ import Background from '../../../public/images/castelbackground.png';
 import './authorization.css';
 import { users } from '../../constats';
 import { Navigate } from 'react-router-dom';
+import actions from '../../actions/actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Authorization = () => {
+  const userStatus = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [auth, setAuth] = useState('');
   const [disabled, setDisabled] = useState(true);
 
   const emailChange = (email) => {
@@ -29,17 +34,17 @@ const Authorization = () => {
     setDisabled(false);
   };
 
-  const logIn = (e) => {
+  const inLog = (e) => {
     e.preventDefault();
-    const resultLogin = users.filter((user) =>
-      Object.values(user)
+    const resultLogin = users.filter((item) =>
+      Object.values(item)
         .toString()
         .includes(email && password),
     );
     if (!resultLogin.length) {
       alert('Введен неверный логин или пароль. Попробуйте еще раз.');
     }
-    setAuth(resultLogin);
+    dispatch(actions.logIn(resultLogin));
   };
 
   return (
@@ -73,7 +78,7 @@ const Authorization = () => {
               <button
                 type="submit"
                 className="authorization_input_type authorization_button"
-                onClick={logIn}
+                onClick={inLog}
                 disabled={disabled}
               >
                 Sign in
@@ -82,7 +87,7 @@ const Authorization = () => {
           </div>
         </form>
       </header>
-      {!!auth.length && <Navigate to="/main" />}
+      {!!userStatus && <Navigate to="/main" />}
     </>
   );
 };
