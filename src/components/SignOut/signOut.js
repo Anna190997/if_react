@@ -5,7 +5,6 @@ import actions from '../../actions/actions';
 import { useDispatch } from 'react-redux';
 
 const SignOut = ({ showButton }) => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

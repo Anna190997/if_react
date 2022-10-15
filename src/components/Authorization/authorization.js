@@ -87,7 +87,7 @@ const Authorization = () => {
           </div>
         </form>
       </header>
-      {!!userStatus && <Navigate to="/main" />}
+      {!!userStatus && <Navigate to="/" />}
     </>
   );
 };
