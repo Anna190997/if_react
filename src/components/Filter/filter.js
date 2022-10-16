@@ -1,9 +1,12 @@
 import './filter.css';
 import CategoryFilter from '../CategoryFilter/categoryFilter';
 import CountFilter from '../CountFilter/countFilter';
+import { useSelector } from 'react-redux';
 
 const Filter = ({ filter, handleMinus, changeParametr, handlePlus }) => {
-
+  const amount = useSelector((state) => state.hotelReducer);
+  amount.adults = changeParametr.adults;
+  amount.rooms = changeParametr.rooms;
   return (
     filter && (
       <form className="filter">

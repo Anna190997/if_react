@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from '../actions/actionTypes';
+import { LOGIN, LOGOUT, ERROR } from '../actions/actionTypes';
 
 const userStatus = (state = {}, action) => {
   switch (action.type) {
@@ -7,6 +7,12 @@ const userStatus = (state = {}, action) => {
         ...state,
         user: action.payload,
         auth: true,
+      };
+    case ERROR:
+      return {
+        ...state,
+        user: {},
+        auth: false,
       };
     case LOGOUT:
       return {
