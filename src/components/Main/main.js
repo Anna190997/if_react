@@ -8,7 +8,7 @@ import { Navigate } from 'react-router-dom';
 import React from 'react';
 
 const Main = () => {
-  const userStatus = useSelector((state) => state.auth);
+  const userStatus = useSelector((state) => state.userStatus);
 
   const [signOut, setSignOut] = useState(false);
 
@@ -22,7 +22,7 @@ const Main = () => {
             to live, work or just relax"
         />
       </div>
-      {!userStatus && <Navigate to="/login" />}
+      {!userStatus.auth && <Navigate to="/login" />}
     </>
   );
 };

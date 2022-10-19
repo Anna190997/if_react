@@ -11,7 +11,9 @@
     "react-router-dom": "^6.4.1",
     "redux": "^4.2.0",
     "redux-actions": "^2.6.5",
-    "redux-persist": "^6.0.0"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.2.1"
   },
   "scripts": {
     "prettier": "prettier src/components/**/*js",

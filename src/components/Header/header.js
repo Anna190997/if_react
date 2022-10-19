@@ -7,7 +7,7 @@ import Filter from '../Filter/filter';
 import ChildrenAge from '../ChildrenAge/childrenAge';
 import { useState } from 'react';
 
-const Header = ({ onChange, showHotel }) => {
+const Header = ({ onChange }) => {
   const [filter, setFilter] = useState(false);
   const [parametrFilter, setParametrFilter] = useState({
     adults: 2,
@@ -29,12 +29,7 @@ const Header = ({ onChange, showHotel }) => {
     <header style={{ backgroundImage: 'url(' + Background + ')' }}>
       <div className="container">
         <Main />
-        <Form
-          onChange={onChange}
-          showHotel={showHotel}
-          onClick={() => setFilter(!filter)}
-          changeInput={change}
-        />
+        <Form onChange={onChange} onClick={() => setFilter(!filter)} changeInput={change} />
         <Filter
           filter={filter}
           handleMinus={handleChangeMinus}

@@ -3,10 +3,15 @@ import Button from '../Button/button';
 import { useState } from 'react';
 import DataPicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector } from 'react-redux';
 
-const Form = ({ onChange, showHotel, onClick, changeInput }) => {
+const Form = ({ onChange, onClick, changeInput }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(startDate);
+
+  const date = useSelector((state) => state.hotelReducer);
+  date.dateFrom = startDate * 3600 * 24 * 1000;
+  date.dateTo = endDate * 3600 * 24 * 1000;
 
   const handleWishChange = (event) => {
     onChange(event.target.value);
@@ -60,7 +65,7 @@ const Form = ({ onChange, showHotel, onClick, changeInput }) => {
         className="number col-4 "
         placeholder="2 Adults — 0 Children — 1 Room"
       />
-      <Button buttonText="Search" showHotel={showHotel} />
+      <Button buttonText="Search" />
     </form>
   );
 };
