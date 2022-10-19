@@ -3,8 +3,12 @@ import TitleMain from '../TitleMain/title_main';
 import NavigatePanel from '../NavigatePanel/navigatePanel';
 import SignOut from '../SignOut/signOut';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import React from 'react';
 
 const Main = () => {
+  const userStatus = useSelector((state) => state.auth);
 
   const [signOut, setSignOut] = useState(false);
 
@@ -18,6 +22,7 @@ const Main = () => {
             to live, work or just relax"
         />
       </div>
+      {!userStatus && <Navigate to="/login" />}
     </>
   );
 };
