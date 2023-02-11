@@ -13,7 +13,7 @@ const initialState = {
   children: '',
   rooms: '',
   dateFrom: '',
-  dateTo: '',
+  dateTo: '  ',
 };
 
 const hotelReducer = (state = initialState, action) => {

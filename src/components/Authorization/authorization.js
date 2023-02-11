@@ -8,7 +8,7 @@ import actions from '../../actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Authorization = () => {
-  const userStatus = useSelector((state) => state.userStatus);
+    const userStatus = useSelector((state) => state.userStatus);
 
   const dispatch = useDispatch();
 
