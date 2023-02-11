@@ -8,7 +8,7 @@ import actions from '../../actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Authorization = () => {
-  const userStatus = useSelector((state) => state.auth);
+    const userStatus = useSelector((state) => state.userStatus);
 
   const dispatch = useDispatch();
 
@@ -43,6 +43,7 @@ const Authorization = () => {
     );
     if (!resultLogin.length) {
       alert('Введен неверный логин или пароль. Попробуйте еще раз.');
+      dispatch(actions.error());
     }
     dispatch(actions.logIn(resultLogin));
   };
@@ -87,7 +88,7 @@ const Authorization = () => {
           </div>
         </form>
       </header>
-      {!!userStatus && <Navigate to="/" />}
+      {!!userStatus.auth && <Navigate to="/" />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from './actionTypes';
+import { LOGIN, LOGOUT, ERROR } from './actionTypes';
 
 const logIn = (userObj) => ({
   type: LOGIN,
@@ -9,7 +9,12 @@ const logOut = () => ({
   type: LOGOUT,
 });
 
+const error = () => ({
+  type: ERROR,
+});
+
 export default {
   logIn,
   logOut,
+  error,
 };

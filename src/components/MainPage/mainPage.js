@@ -3,31 +3,22 @@ import Available from '../Available/available';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const MainPage = () => {
   const [value, setValue] = useState('');
-  const [search, setSearch] = useState([]);
+
+  const searchHotel = useSelector((state) => state.hotelReducer);
+  searchHotel.search = value;
 
   const handleWishChange = (value) => {
     setValue(value);
   };
 
-  const showHotel = async () => {
-    try {
-      const response = await fetch(
-        `https://fe-student-api.herokuapp.com/api/hotels?search=${value}`,
-      );
-      const resultHotel = await response.json();
-      setSearch(resultHotel);
-    } catch (err) {
-      alert('Произошла ошибка. Обновите, пожалуйста, страницу');
-    }
-  };
-
   return (
     <>
-      <Header onChange={handleWishChange} showHotel={showHotel} />
-      <Available search={search} />
+      <Header onChange={handleWishChange} />
+      <Available />
       <Hotel />
       <Footer />
     </>

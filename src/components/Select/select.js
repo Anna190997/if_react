@@ -1,27 +1,30 @@
 import './select.css';
 
-const Select = () => {
+const Select = ({ onChange }) => {
+  const selectChange = (event) => {
+    onChange(event.target.value);
+  };
 
   return (
-    <select className="children_age">
-      <option> 0 years old</option>
-      <option> 1 years old</option>
-      <option> 2 years old</option>
-      <option> 3 years old</option>
-      <option> 4 years old</option>
-      <option> 5 years old</option>
-      <option> 6 years old</option>
-      <option> 7 years old</option>
-      <option> 8 years old</option>
-      <option> 9 years old</option>
-      <option> 10 years old</option>
-      <option> 11 years old</option>
-      <option> 12 years old</option>
-      <option> 13 years old</option>
-      <option> 14 years old</option>
-      <option> 15 years old</option>
-      <option> 16 years old</option>
-      <option> 17 years old</option>
+    <select className="children_age" onChange={selectChange}>
+      <option value="0"> 0 years old</option>
+      <option value="1"> 1 years old</option>
+      <option value="2"> 2 years old</option>
+      <option value="3"> 3 years old</option>
+      <option value="4"> 4 years old</option>
+      <option value="5"> 5 years old</option>
+      <option value="6"> 6 years old</option>
+      <option value="7"> 7 years old</option>
+      <option value="8"> 8 years old</option>
+      <option value="9"> 9 years old</option>
+      <option value="10"> 10 years old</option>
+      <option value="11"> 11 years old</option>
+      <option value="12"> 12 years old</option>
+      <option value="13"> 13 years old</option>
+      <option value="14"> 14 years old</option>
+      <option value="15"> 15 years old</option>
+      <option value="16"> 16 years old</option>
+      <option value="17"> 17 years old</option>
     </select>
   );
 };
